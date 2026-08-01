@@ -1,0 +1,20 @@
+# dependencies
+node_modules/
+**/node_modules/
+
+# next.js
+lifeos-ai/.next/
+lifeos-ai/out/
+
+# env / secrets
+.env
+.env.*
+!.env.example
+
+# misc
+.DS_Store
+*.log
+npm-debug.log*
+
+# local tool config
+.claude/

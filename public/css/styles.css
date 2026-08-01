@@ -1,0 +1,134 @@
+:root {
+  --nav: #f4f6f0;
+  --text-light: #ffffff;
+  --hero-fallback: linear-gradient(180deg, #a9bdb2 0%, #c9d3c4 55%, #d9d2bf 100%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Nunito", -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--text-light);
+}
+
+/* ---------- HERO ---------- */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 4vw;
+
+  /* Swap the url() below for your own background image.
+     Drop the file in /public/images/ and update the path. */
+  background-image: var(--hero-fallback),
+    url("/images/hero.png");
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: overlay;
+}
+
+/* ---------- NAV ---------- */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+}
+
+.nav a {
+  color: var(--nav);
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  font-size: 0.95rem;
+  transition: opacity 0.2s ease;
+}
+
+.nav a:hover {
+  opacity: 0.7;
+}
+
+.nav__links a.is-active {
+  background: rgba(255, 255, 255, 0.9);
+  color: #7a8a7d;
+  padding: 0.35rem 0.7rem;
+  border-radius: 4px;
+}
+
+.nav__social {
+  gap: 1.25rem;
+  font-size: 1.15rem;
+}
+
+/* ---------- HERO CONTENT ---------- */
+.hero__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 560px;
+}
+
+.hero__title {
+  font-family: "Gochi Hand", cursive;
+  font-size: clamp(4rem, 14vw, 9rem);
+  line-height: 0.85;
+  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
+}
+
+.hero__title span {
+  display: block;
+}
+
+.hero__title span:last-child {
+  padding-left: 1.5rem;
+}
+
+.hero__sub {
+  margin-top: 1.75rem;
+  font-size: clamp(1.1rem, 2.2vw, 1.6rem);
+  line-height: 1.5;
+  max-width: 30ch;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.hero__quote {
+  margin-top: 1.25rem;
+  font-style: italic;
+  font-size: clamp(1.35rem, 2.6vw, 1.9rem);
+  line-height: 1.5;
+  max-width: 34ch;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.hero__quote.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 640px) {
+  .nav {
+    justify-content: center;
+    text-align: center;
+  }
+  .hero__content {
+    text-align: left;
+  }
+}

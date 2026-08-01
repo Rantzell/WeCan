@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Light theme — misty WeCan forest, terracotta accent (default) */
+  --bg: 82 16% 82%;
+  --surface: 80 20% 88%;
+  --card: 78 26% 93%;
+  --border: 82 14% 74%;
+  --fg: 155 22% 22%;
+  --muted: 150 10% 38%;
+  --accent: 14 55% 45%;
+  --accent-soft: 18 45% 84%;
+}
+
+.dark {
+  /* Dark theme — foggy dusk forest, terracotta accent */
+  --bg: 155 16% 10%;
+  --surface: 150 12% 14%;
+  --card: 150 12% 17%;
+  --border: 150 8% 24%;
+  --fg: 80 18% 90%;
+  --muted: 120 6% 64%;
+  --accent: 14 62% 58%;
+  --accent-soft: 14 30% 26%;
+}
+
+* {
+  border-color: hsl(var(--border));
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: hsl(var(--bg));
+  color: hsl(var(--fg));
+  font-feature-settings: "cv11", "ss01";
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Ambient misty-forest gradient background (WeCan feel) */
+.app-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(70% 50% at 85% 15%, hsl(var(--accent) / 0.1), transparent 65%),
+    linear-gradient(
+      180deg,
+      hsl(150 20% 78%) 0%,
+      hsl(90 18% 82%) 45%,
+      hsl(48 28% 84%) 100%
+    );
+}
+
+.dark .app-bg {
+  background:
+    radial-gradient(70% 50% at 85% 15%, hsl(var(--accent) / 0.14), transparent 65%),
+    linear-gradient(
+      180deg,
+      hsl(155 18% 12%) 0%,
+      hsl(150 14% 10%) 55%,
+      hsl(40 12% 12%) 100%
+    );
+}
+
+/* Brush handwritten headings */
+.font-brush {
+  font-family: var(--font-brush), cursive;
+  letter-spacing: 0.01em;
+}
+
+/* Dashboard hero banner — drop /hero.jpg into /public to use your own image */
+.dash-hero {
+  min-height: 340px;
+  background-image:
+    linear-gradient(180deg, rgba(120, 140, 120, 0.15), rgba(90, 110, 95, 0.35)),
+    linear-gradient(180deg, hsl(150 22% 74%) 0%, hsl(95 20% 78%) 45%, hsl(48 30% 82%) 100%),
+    url("/hero.jpg");
+  background-size: cover, cover, cover;
+  background-position: center;
+  background-blend-mode: normal, saturation, normal;
+}
+
+/* Glassmorphism card */
+.glass {
+  background: hsl(var(--card) / 0.7);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  border: 1px solid hsl(var(--border) / 0.7);
+}
+
+/* Thin, tasteful scrollbars */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--border));
+  border-radius: 999px;
+  border: 3px solid transparent;
+  background-clip: content-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted) / 0.6);
+  background-clip: content-box;
+}
